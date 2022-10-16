@@ -1,0 +1,13 @@
+Web size=1920*1080
+grid=12 column
+Margine=220px each side
+gutter=24px
+
+logo=w246.64px*h59.86px
+
+Top Navigation=H120px
+text Hading1=65px
+crack platoon text size=30px
+Paragraph1=24px
+navigation manu=18px
+

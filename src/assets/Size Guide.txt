@@ -1,0 +1,5 @@
+Icon size for web service section
+80*80px
+
+web favicon size
+16*16px
