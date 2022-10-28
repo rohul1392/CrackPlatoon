@@ -1,12 +1,12 @@
-import * as React from "react";
-
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Button from "../components/atom/Button";
 import Typography from "../components/atom/Typography";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
+//import Link from "@mui/material/Link";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -36,6 +36,19 @@ const contact = {
 };
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_hxjl3vs', 'template_gbls9du', form.current, 'CVA97pm3-fv4p33rP')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
   return (
     <Box
       component="section"
@@ -232,11 +245,13 @@ function Contact() {
                 }}
               >
                 <Box noValidate sx={{ mt: 3 }}>
+                <form ref={form} onSubmit={sendEmail}>
+
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <TextField
                         autoComplete="given-name"
-                        name="firstName"
+                        name="user_name"
                         required
                         fullWidth
                         id="firstName"
@@ -249,7 +264,7 @@ function Contact() {
                         fullWidth
                         id="email"
                         label="Email Address"
-                        name="email"
+                        name="user_email"
                         autoComplete="email"
                       />
                     </Grid>
@@ -258,18 +273,19 @@ function Contact() {
                         fullWidth
                         id="outlined-multiline-static"
                         label="Message"
+                        name="message"
                         multiline
                         rows={3}
                         defaultValue=""
                       />
                     </Grid>
                   </Grid>
-                  <Link
+                  {/* <Link
                     href="https://www.linkedin.com/company/crack-platoon/"
                     title="Creative Commons BY 3.0"
                     target="_blank"
                     rel="noopener noreferrer"
-                  >
+                  > */}
                     <Button
                       type="submit"
                       fullWidth
@@ -278,7 +294,8 @@ function Contact() {
                     >
                       Send
                     </Button>
-                  </Link>
+                    </form>
+                  {/* </Link> */}
                 </Box>
               </Box>
             </Grid>
