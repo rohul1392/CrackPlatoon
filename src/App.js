@@ -5,6 +5,8 @@ import Home from './components/Home'
 import Service from './components/Service'
 import Contact from './components/Contact'
 import AppFooter from './components/AppFooter'
+import AboutUs from './components/AboutUs'
+
 import {
   BrowserRouter,
   Routes,
@@ -19,6 +21,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/service" element={<Service />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/about" element={<AboutUs />} />
     </Routes>
   </BrowserRouter>
   <AppFooter />

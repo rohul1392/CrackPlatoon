@@ -31,14 +31,6 @@ const ResponsiveAppBar = () => {
             color="text.primary"
             sx={{ my: 1, mx: 1.5, textDecoration: "none" }}
           >
-            Services
-          </Link>
-          <Link
-            href="/service"
-            variant="button"
-            color="text.primary"
-            sx={{ my: 1, mx: 1.5, textDecoration: "none" }}
-          >
             Portfolio
           </Link>
           <Link
@@ -49,6 +41,15 @@ const ResponsiveAppBar = () => {
           >
             Contact
           </Link>
+          <Link
+            href="/about"
+            variant="button"
+            color="text.primary"
+            sx={{ my: 1, mx: 1.5, textDecoration: "none" }}
+          >
+            About us
+          </Link>
+
         </nav>
         <Button
           href="#"

@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Button from "../components/atom/Button";
 import Typography from "../components/atom/Typography";
 import TextField from "@mui/material/TextField";
-//import Link from "@mui/material/Link";
+import Link from "@mui/material/Link";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -41,12 +41,21 @@ function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_hxjl3vs', 'template_gbls9du', form.current, 'CVA97pm3-fv4p33rP')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_hxjl3vs",
+        "template_gbls9du",
+        form.current,
+        "CVA97pm3-fv4p33rP"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
   };
 
   return (
@@ -114,7 +123,7 @@ function Contact() {
                         </ListItemAvatar>
                         <ListItemText
                           primary="Email"
-                          secondary="crackplatoonit@gmail.com"
+                          secondary="info@crackplatoonit.com"
                         />
                       </ListItem>
                     </List>
@@ -135,7 +144,7 @@ function Contact() {
                         </ListItemAvatar>
                         <ListItemText
                           primary="Phone"
-                          secondary="+88000000000"
+                          secondary="+8801521218772"
                         />
                       </ListItem>
                     </List>
@@ -158,7 +167,7 @@ function Contact() {
                         </ListItemAvatar>
                         <ListItemText
                           primary="Location"
-                          secondary="Dhaka,Bangladesh"
+                          secondary="Plot :29 Road:10 South Bari-Dhara Rampura Dhaka 1212"
                         />
                       </ListItem>
                     </List>
@@ -185,14 +194,12 @@ function Contact() {
                 <Grid container spacing={1}>
                   <Grid item xs={12} md={12} lg={12}>
                     <Stack direction="row" spacing={2}>
-                      <Avatar
-                        alt="Facebook"
-                        src={FbIcon}
-                      />
-                      <Avatar
-                        alt="Linkedin"
-                        src={LinkedIcon}
-                      />
+                      <Link href="https://www.facebook.com/crack.platoon.2022/">
+                        <Avatar alt="Facebook" src={FbIcon} />
+                      </Link>
+                      <Link href="https://www.facebook.com/crack.platoon.2022/">
+                        <Avatar alt="Linkedin" src={LinkedIcon} />
+                      </Link>
                     </Stack>
                   </Grid>
                 </Grid>
@@ -206,30 +213,12 @@ function Contact() {
                 <Grid container spacing={1}>
                   <Grid item xs={12} md={12} lg={12}>
                     <Stack direction="row" spacing={2}>
-                      <Avatar
-                        alt="Facebook"
-                        src={googlemeet}
-                      />
-                      <Avatar
-                        alt="Linkedin"
-                        src={line}
-                      />
-                               <Avatar
-                        alt="Facebook"
-                        src={skype}
-                      />
-                      <Avatar
-                        alt="Linkedin"
-                        src={whatsapp}
-                      />
-                               <Avatar
-                        alt="Facebook"
-                        src={zoom}
-                      />
-                      <Avatar
-                        alt="Linkedin"
-                        src={slack}
-                      />
+                      <Avatar alt="Facebook" src={googlemeet} />
+                      <Avatar alt="Linkedin" src={line} />
+                      <Avatar alt="Facebook" src={skype} />
+                      <Avatar alt="Linkedin" src={whatsapp} />
+                      <Avatar alt="Facebook" src={zoom} />
+                      <Avatar alt="Linkedin" src={slack} />
                     </Stack>
                   </Grid>
                 </Grid>
@@ -244,43 +233,53 @@ function Contact() {
                   alignItems: "center",
                 }}
               >
-                <Box noValidate sx={{ mt: 3 }}>
-                <form ref={form} onSubmit={sendEmail}>
+                <Box noValidate sx={{ mt: 2 }}>
+                  <Typography variant="h4" align="flex-start">
+                    How can we help you?
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    align="flex-start"
+                    sx={{ mt: 2, mb: 1 }}
+                  >
+                    Fill out the form and we will be in touch shortly.
+                  </Typography>
 
-                  <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                      <TextField
-                        autoComplete="given-name"
-                        name="user_name"
-                        required
-                        fullWidth
-                        id="firstName"
-                        label="Name"
-                      />
+                  <form ref={form} onSubmit={sendEmail}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <TextField
+                          autoComplete="given-name"
+                          name="user_name"
+                          required
+                          fullWidth
+                          id="firstName"
+                          label="Name"
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          required
+                          fullWidth
+                          id="email"
+                          label="Email Address"
+                          name="user_email"
+                          autoComplete="email"
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          id="outlined-multiline-static"
+                          label="Message"
+                          name="message"
+                          multiline
+                          rows={3}
+                          defaultValue=""
+                        />
+                      </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="user_email"
-                        autoComplete="email"
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        fullWidth
-                        id="outlined-multiline-static"
-                        label="Message"
-                        name="message"
-                        multiline
-                        rows={3}
-                        defaultValue=""
-                      />
-                    </Grid>
-                  </Grid>
-                  {/* <Link
+                    {/* <Link
                     href="https://www.linkedin.com/company/crack-platoon/"
                     title="Creative Commons BY 3.0"
                     target="_blank"
@@ -294,7 +293,7 @@ function Contact() {
                     >
                       Send
                     </Button>
-                    </form>
+                  </form>
                   {/* </Link> */}
                 </Box>
               </Box>
